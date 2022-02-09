@@ -1,0 +1,112 @@
+body{
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: sans-serif;
+
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 10vmin;
+  pointer-events: none;
+  margin-right: 20px;
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 10s linear;
+  }
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  padding: 30px 25px;
+  text-decoration: none;
+  
+}
+
+.nav--logo_text{
+  margin:0;
+  margin-right: auto;
+  font-weight: 800;
+  font-size: 22px;
+  color: #26d5ec;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+
+.nav-logo {
+  width: 70px;
+  margin-top: 10px;
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+  text-decoration: none;
+}
+
+.nav-items > li {
+  padding: 15px;
+  border-right: 1px solid #bbb;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.nav-items > li > a {
+  text-decoration: none;
+  color:#26c0d4
+}
+
+.Welcome {
+  display: flex;
+}
+
+.contactContainer{
+  border-radius: 5px;
+  padding: 20px;
+}
+
+input[type=text], input[type=email], input[type=number], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
