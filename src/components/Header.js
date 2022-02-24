@@ -7,7 +7,7 @@ export default function Header() {
         <header>
             <nav className="nav">
                 <div className="App-logo"><img src={logo} className="nav-logo"/></div>
-                <h3 className="nav--logo_text">Stock Basics</h3>
+                <h3 className="nav--logo_text">Stock Search</h3>
                 <ul className="nav-items">
                     <li><Link to="/">Home</Link></li>  
                     <li><Link to="/stocks">Stocks</Link></li> 

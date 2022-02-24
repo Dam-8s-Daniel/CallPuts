@@ -48,7 +48,7 @@ function Stocks(){
 
     return (
       <div>
-        <h1>Look up stocks</h1>
+        <h1>Your stock balance</h1>
         <input
             type='text'
             placeholder='Stock Symbol'

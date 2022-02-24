@@ -1,0 +1,22 @@
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.News {
+    
+    height: 450px;
+    max-width: 350px;
+    padding: 20px;
+    border: 3px solid #26d5ec;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 20px;
+
+}
+
+
+.NewsImage{
+    max-width: 325px
+}

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import NewsItem from "./NewsItem";
 
 
 
@@ -7,7 +7,7 @@ export default function News () {
 
     const [searchTerm, setSearchTerm] = useState('')
     const [currentNews, setCurrentNews] = useState([])
-    const [wikiResult, setWiki] = useState('This area is for a wikipedia entry')
+    const [wikiResult, setWiki] = useState('')
     const [showNews, setShowNews] = useState(false)
     const [displayWiki, setDisplayWiki] = useState(false)
 
@@ -16,33 +16,80 @@ export default function News () {
     let API_Call = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2022-02-08&sortBy=popularity&apiKey=${API_KEY}`
 
 
+
     const getNews = async () => {
         if (searchTerm === ""){
             alert('Please add a search term')
         }else{
-        setCurrentNews([])
-        setShowNews(true);
-        const response = await fetch(API_Call)
+            setCurrentNews([])
+            setShowNews(true);
+            const response = await fetch(API_Call)
+                .then(res => res.json())
+                .then(data =>setCurrentNews(data.articles));
+                console.log(currentNews)
+            }
+    }
+
+    // const getNews = async () => {
+    //     if (searchTerm === ""){
+    //         alert('Please add a search term')
+    //     }else{
+    //         setCurrentNews([])
+    //         setShowNews(true);
+    //         const response = await fetch(API_Call)
+    //             .then(res => res.json())
+    //             .then(data =>{ 
+    //                 console.log(data['articles']);
+    //                 let articles = data['articles']
+    //                 for (let i = 0; i < 3; i++ ){
+    //                     setCurrentNews(oldArray => [
+    //                         ...oldArray, 
+                            
+    //                             articles[i]['title'], articles[i]['url'], articles[i]['urlToImage'] 
+                            
+                        
+    //                     ])
+    //             }
+    //         }  
+    //         )}
+    // }    
+
+    // const displayNews = currentNews.map((element, index) => index % 2 === 0 ? 
+    // <p>{element}</p> : <a href={element}>link</a>)
+
+    const displayNews = currentNews.slice(0, 3).map(({title, description, url, urlToImage}) => (
+        <NewsItem
+            title={title}
+            description={description}
+            url={url}
+            urlToImage={urlToImage}
+        />
+    ));
+
+    const settingShowWiki = () => {
+        if (wikiResult === ""){
+            alert("Please add a search term")
+        }
+        else{
+             fetch("/wiki",{
+               method: 'POST',
+               headers:{
+                   "Content-Type": 'application/json'
+               },
+               body: JSON.stringify({
+                   search: `${wikiResult}`
+               })})
             .then(res => res.json())
-            .then(data =>{ 
-                console.log(data['articles']);
-                let articles = data['articles']
-                for (let i = 0; i < 3; i++ ){
-                    setCurrentNews(oldArray => [...oldArray, `${i + 1}. ` + articles[i]['title'], articles[i]['url'] ])
-                }
-            }  
-            )}
-    }    
+            .then(data => setWiki(data['wiki_text']));
+            
+        }setDisplayWiki(true)
+    }
 
-    const displayNews = currentNews.map((element, index) => index % 2 === 0 ? 
-    <p>{element}</p> : <a href={element}>link</a>)
-
-    const settingShowWiki = () => setDisplayWiki(true)
-
-    const displayWikiResult = <p>You searched for {wikiResult}. The wikipedia page will be displayed here.</p>
+    const displayWikiResult = <p>{wikiResult}</p>
 
     return (
         <div>
+            <div className='NewsSearch'>
             <p>News search</p>
 
             <input
@@ -55,10 +102,10 @@ export default function News () {
             <button onClick={getNews}>
             Search</button>
            
-            <div>
+            <div className='NewsDisplay'>
                 {showNews && displayNews}
             </div>
-
+            </div>
             <p>Wiki search</p>
 
             <input
@@ -67,11 +114,12 @@ export default function News () {
             placeholder='Search wikipedia'
             onChange={e => {
                 setWiki(e.target.value);
+                setDisplayWiki(false)
             }}/>
 
             <button onClick={settingShowWiki}>
             Search</button>
-            <div>
+            <div className='WikiSearch'>
                 {displayWiki && displayWikiResult}
             </div>
         </div>
