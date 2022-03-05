@@ -16,7 +16,6 @@ export default function News () {
     let API_Call = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2022-02-08&sortBy=popularity&apiKey=${API_KEY}`
 
 
-
     const getNews = async () => {
         if (searchTerm === ""){
             alert('Please add a search term')
@@ -29,33 +28,6 @@ export default function News () {
                 console.log(currentNews)
             }
     }
-
-    // const getNews = async () => {
-    //     if (searchTerm === ""){
-    //         alert('Please add a search term')
-    //     }else{
-    //         setCurrentNews([])
-    //         setShowNews(true);
-    //         const response = await fetch(API_Call)
-    //             .then(res => res.json())
-    //             .then(data =>{ 
-    //                 console.log(data['articles']);
-    //                 let articles = data['articles']
-    //                 for (let i = 0; i < 3; i++ ){
-    //                     setCurrentNews(oldArray => [
-    //                         ...oldArray, 
-                            
-    //                             articles[i]['title'], articles[i]['url'], articles[i]['urlToImage'] 
-                            
-                        
-    //                     ])
-    //             }
-    //         }  
-    //         )}
-    // }    
-
-    // const displayNews = currentNews.map((element, index) => index % 2 === 0 ? 
-    // <p>{element}</p> : <a href={element}>link</a>)
 
     const displayNews = currentNews.slice(0, 3).map(({title, description, url, urlToImage}) => (
         <NewsItem

@@ -40,7 +40,6 @@ function Stocks(){
         });
     
         const chartImageURL = chart.getUrl();
-        console.log(chartImageURL)
         setChartURL(chartImageURL)
     }
 

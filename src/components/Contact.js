@@ -3,7 +3,6 @@ import Robot from '../robot.png'
 
 export default function Contact () {
 
-
     return (
         <div className='contactContainer'>
             <img src={Robot} className='contactRobot'></img>
