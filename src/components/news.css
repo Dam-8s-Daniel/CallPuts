@@ -1,0 +1,8 @@
+.WikiSearch{
+    height: 150px;
+    overflow:auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    color: white;
+}

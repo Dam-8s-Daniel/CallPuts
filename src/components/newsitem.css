@@ -1,5 +1,5 @@
 a{
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -8,15 +8,22 @@ a{
     height: 450px;
     max-width: 350px;
     padding: 20px;
-    border: 3px solid #26d5ec;
+    border: 1px solid #26d5ec;
     margin-bottom: 20px;
-    margin-top: 10px;
-    margin-right: 5px;
+    margin-top: 20px;
+    margin-right: 20px;
     margin-left: 20px;
 
 }
 
+.News:hover {
+    background-color: #26d5ec;
+}
 
 .NewsImage{
-    max-width: 325px
+    max-width: 325px;
+    background-color: #26d5ec;
+    margin-top: 5px;
 }
+
+

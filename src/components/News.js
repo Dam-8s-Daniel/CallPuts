@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import NewsItem from "./NewsItem";
-
+import "./news.css"
 
 
 export default function News () {
