@@ -54,36 +54,27 @@ function Stocks(){
         const response = await fetch(API_Call)
             .then(res => res.json())
             .then(data =>{
+                if ('Error Message' in data){
+                    alert("Please enter a correct symbol or amounts");
+                    throw new Error('Please enter a correct symbol or amounts')
+                }
                 let arrDates = Object.keys(data['Time Series (Daily)']);
-                // console.log(data['Time Series (Daily)']['2022-03-02']['4. close'])
                 let arrClosePrices = []
                 for (let h = 0; h < arrDates.length; h++){
                     arrClosePrices.push(data['Time Series (Daily)'][arrDates[h]]['4. close'])
                 }
-                console.log("close prices", arrClosePrices)
-                console.log("dates", arrDates)
                 let lastClosingDate = arrDates[0]
-                console.log("last closing date:", lastClosingDate);
-                //data['Time Series (Daily)']['YYYY-MM-DD']['4. close']
                 let i = data['Time Series (Daily)'][lastClosingDate]['4. close']
                 let m = parseFloat(i).toFixed(2)
                 setLastClosingPrice(m)
-                console.log("last closing price:", data['Time Series (Daily)'][lastClosingDate]['4. close'])
                 let principal = price * amount
                 setPreviousBalance(principal);
                 let New_Balance = data['Time Series (Daily)'][lastClosingDate]['4. close'] * amount;
-                console.log('new balance', New_Balance)
                 setNewBalance(New_Balance.toFixed(2))
                 setMessage(true)
                 setxData(arrDates.reverse())
                 setyData(arrClosePrices.reverse())
-            } );
-            
-        if(response.status === 200){
-            alert('Sucessful');
-        }else{
-            alert(`Failed, status code = ${response.status}`);
-        }
+            }).catch(error => console.log(error.message));
     }
 
     const show_Balance =  
@@ -97,10 +88,9 @@ function Stocks(){
     )
 
    
-
     return (
       <div>
-        <h1>Price Over Last 20 Days</h1>
+        <h1>3 month price chart</h1>
         <input
             type='text'
             placeholder='Stock Symbol'
@@ -112,12 +102,10 @@ function Stocks(){
         <input
             type='number'
             placeholder='Buy Price'
-           // value={price}
             onChange={e => setPrice(e.target.value)} />
         <input
             type='number'
             placeholder='Amount'
-            //value={amount}
             onChange={e => setAmount(e.target.value)} />
         <button onClick={stockPrices}>
             Submit</button>
