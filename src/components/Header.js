@@ -11,7 +11,6 @@ export default function Header() {
                 <h3 className="nav--logo_text"></h3>
                 <ul className="nav-items">
                     <li><Link to="/">Home</Link></li>
-                    <li>Portfolio</li>  
                     <li><Link to="/stocks">Charts</Link></li> 
                     <li><Link to="/research">Research</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
