@@ -1,6 +1,7 @@
 import React,{useState, useEffect}  from 'react';
 import {Link, useNavigate} from 'react-router-dom'
 import InvestmentList from './InvestmentList'
+import plus from '../plus.png'
 
 export default function Portfolio({setInvestmentToEdit}) {
     const [investments, setInvestments] = useState([]);
@@ -34,9 +35,9 @@ export default function Portfolio({setInvestmentToEdit}) {
     return (
         <>
         <h3 className='Portfolio-table-name'>Portfolio</h3>
-        <Link to='/add-investment'>Add investment</Link>
-        <InvestmentList investments={investments} onDelete={onDelete} onEdit={onEdit}></InvestmentList>
         
+        <InvestmentList investments={investments} onDelete={onDelete} onEdit={onEdit}></InvestmentList>
+        <Link to='/add-investment'><img className='plusImg' src={plus}/></Link>
         </>
     )
 

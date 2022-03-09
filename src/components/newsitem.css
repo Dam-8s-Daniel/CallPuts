@@ -21,7 +21,8 @@ a{
 }
 
 .NewsImage{
-    max-width: 325px;
+    max-width: 345px;
+    max-height: 240px;
     background-color: #26d5ec;
     margin-top: 5px;
 }
