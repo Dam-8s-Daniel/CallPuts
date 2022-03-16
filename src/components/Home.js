@@ -7,6 +7,7 @@ export default function Home () {
             <div className='WelcomeImg'><img src={robot}></img></div>
             <div className='WelcomeMessage'>
                 <h1>Welcome to CallPuts!</h1>
+                <p>Hi, I'm LIT (Liquidity Information Tracker). Let me show you around.</p>
                 <p>
                     Charts: Get a chart of closing prices from the last 3 months. 
                     Enter the stock you bought, the price, and the amount to get how much your investment increased. 
