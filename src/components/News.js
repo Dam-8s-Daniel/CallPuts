@@ -13,7 +13,7 @@ export default function News () {
 
     const API_KEY = '2d719755f6344ec081bb6f9e86aa1bf2';
 
-    let API_Call = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2022-03-08&sortBy=popularity&apiKey=${API_KEY}`
+    let API_Call = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2022-03-27&sortBy=popularity&apiKey=${API_KEY}`
 
 
     const getNews = async () => {
@@ -43,7 +43,7 @@ export default function News () {
             alert("Please add a search term")
         }
         else{
-             fetch("/wiki",{
+             fetch("http://localhost:5000/wiki",{
                method: 'POST',
                headers:{
                    "Content-Type": 'application/json'
