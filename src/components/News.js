@@ -13,7 +13,7 @@ export default function News () {
 
     const API_KEY = '2d719755f6344ec081bb6f9e86aa1bf2';
 
-    let API_Call = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2022-02-08&sortBy=popularity&apiKey=${API_KEY}`
+    let API_Call = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2022-03-08&sortBy=popularity&apiKey=${API_KEY}`
 
 
     const getNews = async () => {

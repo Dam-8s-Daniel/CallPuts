@@ -89,7 +89,7 @@ function Stocks(){
    
     return (
       <div>
-        <h1>Three-month price chart</h1>
+        <h1>Price chart</h1>
         <input
             type='text'
             placeholder='Stock Symbol'
